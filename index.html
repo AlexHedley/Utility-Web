@@ -16,7 +16,7 @@
   <body>
   
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Hub</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Utility</a>
   </nav>
 
   <div class="container-fluid">
@@ -85,9 +85,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <textarea id="escape" class="form-control">
-                        &lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
-                    </textarea>
+                    <textarea id="escape" class="form-control">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</textarea>
                 </div>
                 <div class="row">
                     <button id="btnEscape" name="btnEscape" class="btn btn-success float-right">Escape</button>
@@ -128,7 +126,42 @@
 
         <!-- HEX to RGB -->
         <div>
-
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">HEX to RGB</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <label class="label-control">Hex:</label>
+              <input type="color" id="colour" name="colour" class="form-control" value="#26264C">
+            </div>
+            <div class="row">
+              <button id="btnConvert" name="btnConvert" class="btn btn-success float-right">Convert</button>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="rgbRed" class="control-label col-xs-3">Red:</label>
+                    <div class="col-xs-9">
+                        <input type="number" class="form-control" id="rgbRed" placeholder="Red">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="rgbGreen" class="control-label col-xs-3">Green:</label>
+                    <div class="col-xs-9">
+                        <input type="number" class="form-control" id="rgbGreen" placeholder="Green">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="rgbBlue" class="control-label col-xs-3">Blue:</label>
+                    <div class="col-xs-9">
+                        <input type="number" class="form-control" id="rgbBlue" placeholder="Blue">
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
 
         <!-- SQL Builder (IN Clause) -->
@@ -158,7 +191,6 @@
 
       </main>
     </div>
-
   </div>
 
     <!-- Optional JavaScript -->
