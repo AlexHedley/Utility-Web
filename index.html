@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css" >
+
+    <title>Utility</title>
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Hub</a>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <i class="fas fa-exchange-alt"></i>
+                HTML Escape/Unescape <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                URL Encode
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                HEX to RGB
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                SQL Builder (IN Clause)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Guid
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                JSON Pretty
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="layers"></span>
+                  XML Pretty
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="layers"></span>
+                  SQL Formatter
+                </a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <!-- HTML Escape/Unescape -->
+        <div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">HTML Encode/Decode</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <textarea id="escape" class="form-control">
+                        &lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+                    </textarea>
+                </div>
+                <div class="row">
+                    <button id="btnEscape" name="btnEscape" class="btn btn-success float-right">Escape</button>
+                </div>
+                <div class="row">
+                    <textarea id="unescape" class="form-control">
+                    </textarea>
+                </div>
+                <div class="row">
+                    <button id="btnUnescape" name="btnUnescape" class="btn btn-success float-right">Unescape</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- URL Encode -->
+        <div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">URL Encode</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <input id="urlEncode" name="urlEncode" class="form-control" value="http://www.alexhedley.com">
+                </div>
+                <div class="row">
+                    <button id="btnEncode" name="btnEncode" class="btn btn-success float-right">Encode</button>
+                </div>
+                <div class="row">
+                    <input id="urlDecode" name="urlDecode" class="form-control">
+                </div>
+                <div class="row">
+                    <button id="btnDecode" name="btnDecode" class="btn btn-success float-right">Decode</button>
+                </div>
+            </div>
+            <div>
+                <p>Inspired from <a href="https://meyerweb.com/eric/tools/dencoder/">meyerweb URL Decoder/Encoder</a></p>
+            </div>
+        </div>
+
+        <!-- HEX to RGB -->
+        <div>
+
+        </div>
+
+        <!-- SQL Builder (IN Clause) -->
+        <div>
+
+        </div>
+
+        <!-- Guid -->
+        <div>
+
+        </div>
+
+        <!-- JSON Pretty -->
+        <div>
+
+        </div>
+
+        <!-- XML Pretty -->
+        <div>
+
+        </div>
+
+        <!-- SQL Formatter -->
+        <div>
+
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.min.js" ></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
