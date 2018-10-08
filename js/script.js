@@ -86,6 +86,37 @@ function hexToRgb(hex) {
 
 // Guid
 
+$('#btnGuidZeroCopy').click(function() {
+    var text = $('input#guidZero');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
+
+$('#btnGuidNewCreate').click(function() {
+    //var text = $('input#guidNew').val();
+    //console.log(text);
+    // then to call it, plus stitch in '4' in the third group
+    guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+    $('input#guidNew').val(guid);
+});
+
+$('#btnGuidNewCopy').click(function() {
+    var text = $('input#guidNew');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
+
+
+
+// http://guid.us/GUID/JavaScript
+function S4() {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+}
+
 // ---
 
 // JSON Pretty
