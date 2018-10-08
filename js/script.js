@@ -82,6 +82,44 @@ function hexToRgb(hex) {
 
 // SQL Builder (IN Clause)
 
+$('#btnClearSQLBuilder').click(function() {
+    $('textarea#sqlBuilderInput').val('');
+});
+
+$('#btnParse').click(function() {
+    var text = $('textarea#sqlBuilderInput').val();
+    var split = text.trim().split("\n");
+    console.log(split);
+    split = cleanArray(split);
+
+    var wrapper = $('#wrapper').find(":selected").text();
+    console.log(wrapper);
+
+    var output = '';
+    output = output + wrapper + split.join(wrapper + "," + wrapper) + wrapper
+    console.log(output);
+    output = 'IN (' + output + ')';
+
+    $('textarea#sqlBuilderOutput').val(output);
+});
+
+function cleanArray(actual) {
+    var newArray = new Array();
+    for (var i = 0; i < actual.length; i++) {
+      if (actual[i]) {
+        newArray.push(actual[i]);
+      }
+    }
+    return newArray;
+  }
+
+$('#btnCopySQLBuilder').click(function() {
+    var text = $('textarea#sqlBuilderOutput');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+});
+
 // ---
 
 // Guid

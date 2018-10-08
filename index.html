@@ -170,7 +170,36 @@
 
         <!-- SQL Builder (IN Clause) -->
         <div>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">SQL Builder (IN Clause)</h1>
+          </div>
 
+          <div class="container">
+            <div class="row">
+              <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success float-right">Clear</button>
+            </div>
+            <div class="row">
+              <label class="label-control">Wrapper:</label>
+              <div class="input-group">
+                <select id="wrapper" name="wrapper">
+                  <option value=""></option>
+                  <option value="'">'</option>
+                </select>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnParse" name="btnParse">Parse</button>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
         </div>
 
         <!-- Guid -->
