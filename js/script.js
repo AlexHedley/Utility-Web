@@ -1,3 +1,35 @@
+$(function() {
+    console.log( "ready!" );
+    hideAll();
+
+    $("#section0").show();
+});
+
+function hideAll() {
+    $("#section0").hide();
+    $("#section1").hide();
+    $("#section2").hide();
+    $("#section3").hide();
+    $("#section4").hide();
+    $("#section5").hide();
+    $("#section6").hide();
+    $("#section7").hide();
+};
+
+$('nav li a').click(function(e) {
+    e.preventDefault();
+    //alert($(this).text());
+    $('li a').removeClass("active");
+    $(this).addClass("active");
+
+    var el = $(this).parent().index();
+    console.log(el);
+
+    hideAll();
+    var id = "#section" + el;
+    $(id).show();
+});
+
 // HTML Encode/Decode
 $('#btnEscape').click(function() {
     var text = $('textarea#escape').val();
