@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/dashboard.css" >
 
@@ -244,7 +245,7 @@
           <div class="container">
             <div class="row">
               <textarea id="json" class="form-control"></textarea>
-              <pre id="output"></pre>
+              <pre id="outputJson"></pre>
             </div>
             <div class="row">
               <button id="btnJsonPP" name="btnJsonPP" class="btn btn-success float-right">Pretty</button>
@@ -254,7 +255,23 @@
 
         <!-- XML Pretty -->
         <div id="section6">
-          <p>XML Pretty</p>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">XML Pretty Print</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="xml" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnXmlPP" name="btnXmlPP" class="btn btn-success float-right">Pretty</button>
+            </div>
+            <div class="row">
+              <textarea id="outputXml" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyXML" name="btnCopyXML" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
         </div>
 
         <!-- SQL Formatter -->
@@ -269,7 +286,8 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.min.js" ></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
