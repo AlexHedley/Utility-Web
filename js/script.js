@@ -7,6 +7,10 @@ $(function() {
     //$("#outputXml").resizable();
     //$('#outputXml').autoResize();
     //autosize($('#outputXml'));
+    //hljs.initHighlightingOnLoad();
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
 });
 
 function hideAll() {
@@ -249,6 +253,9 @@ $('#btnXmlPP').click(function() {
     var prettyXml = prettifyXml(text);
     document.getElementById('outputXml').value = prettyXml;
     $("#outputXml").height( $("#outputXml")[0].scrollHeight );
+
+    //document.getElementById('outputXmlCode').innerHTML = prettyXml;
+    //hljs.highlightBlock(document.getElementById('outputXmlCode'));
 });
 
 $('#btnCopyXML').click(function() {
@@ -296,8 +303,11 @@ $('#btnSqlPP').click(function() {
 
     var prettySql = vkbeautify.sql(text, 4);
     
-    document.getElementById('outputSql').value = prettySql;
-    $("#outputSql").height( $("#outputSql")[0].scrollHeight );
+    //document.getElementById('outputSql').value = prettySql;
+    //$("#outputSql").height( $("#outputSql")[0].scrollHeight );
+    
+    document.getElementById('outputSqlCode').innerHTML = prettySql;
+    hljs.highlightBlock(document.getElementById('outputSqlCode'));
 });
 
 $('#btnCopySql').click(function() {
