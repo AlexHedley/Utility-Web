@@ -289,3 +289,21 @@ var prettifyXml = function(sourceXml)
 // ---
 
 // SQL Formatter
+
+$('#btnSqlPP').click(function() {
+    var text = $('textarea#sql').val();
+    console.log(text);
+
+    var prettySql = vkbeautify.sql(text, 4);
+    
+    document.getElementById('outputSql').value = prettySql;
+    $("#outputSql").height( $("#outputSql")[0].scrollHeight );
+});
+
+$('#btnCopySql').click(function() {
+    var text = $('textarea#outputSql');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
