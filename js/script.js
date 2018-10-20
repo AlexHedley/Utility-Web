@@ -11,6 +11,27 @@ $(function() {
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
+
+    // $(".diff-wrapper").prettyTextDiff({
+    //     diffContainer: ".diff1"
+    // });
+
+    // Initial diff2
+    $(".diff-wrapper").prettyTextDiff({
+        originalContent: $('#original').val(),
+        changedContent: $('#changed').val(),
+        diffContainer: ".diff1"
+    });
+
+    // Run diff on textarea change
+    $(".diff-textarea").on('change keyup', function() {
+        $(".diff-wrapper").prettyTextDiff({
+            originalContent: $('#original').val(),
+            changedContent: $('#changed').val(),
+            diffContainer: ".diff1"
+        });
+
+    });
 });
 
 function hideAll() {
@@ -24,7 +45,10 @@ function hideAll() {
     $("#section7").hide();
     $("#section8").hide();
     $("#section9").hide();
-
+    $("#section10").hide();
+    $("#section11").hide();
+    $("#section12").hide();
+    $("#section13").hide();
 };
 
 $('nav li a').click(function(e) {

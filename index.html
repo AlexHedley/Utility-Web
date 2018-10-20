@@ -353,6 +353,9 @@
           </div>
           <div class="container">
             <div class="row">
+              <p><a href="https://www.soscisurvey.de/tools/view-chars.php" target="_blank">View non-printable unicode characters</a></p>
+            </div>
+            <div class="row">
               <textarea id="hiddenChars" class="form-control"></textarea>
             </div>
             <div class="row">
@@ -388,6 +391,99 @@
           </div>
         </div>
 
+        <!-- MD5 -->
+        <div id="section10">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">MD5</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="md5" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnMd5" name="btnMd5" class="btn btn-success float-right">Swap</button>
+            </div>
+            <div class="row">
+              <textarea id="outputMd5" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyMd5" name="btnCopyMd5" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diff -->
+        <div id="section11">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Diff</h1>
+          </div>
+          <div class="container">
+
+            <div class="row diff-wrapper">
+              <div class="col-md-4">
+                <h4>Original text</h4>
+
+                <!-- <div class="original">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only centuries, but also the leap into electronic typesetting.</div> -->
+                <textarea class="form-control diff-textarea" id="original" rows="6">Lorem Ipsum is simply printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text eve</textarea>
+              </div>
+              <div class="col-md-4">
+                <h4>Changed text</h4>
+
+                <!-- <div class="changed">Lorem Ipsum is simply typesetting dummy text of the printing and has been the industry's typesetting. Lorem Ipsum has been the industry's standard dummy text ever the 1500s, when an printer took a galley of type and simply it to make a type. It has survived not only five centuries, but survived not also the leap into electronic typesetting.</div> -->
+                <textarea class="form-control diff-textarea" id="changed" rows="6">Ting dummy text of the printing and has been the industry's typesetting. Lorem Ipsum has been the industry's</textarea>
+              </div>
+              <div class="col-md-4">
+                <h4>Diff results</h4>
+
+                <div class="diff1"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Time Converter -->
+        <div id="section12">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Time Converter</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="diff" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnDiff" name="btnDiff" class="btn btn-success float-right">Swap</button>
+            </div>
+            <div class="row">
+              <textarea id="outputDiff" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyDiff" name="btnCopyDiff" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- kb - mb - gb Converter -->
+        <div id="section13">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">kb - mb - gb Converter</h1>
+            </div>
+            <div class="container">
+              <div class="row">
+                <textarea id="diff" class="form-control"></textarea>
+              </div>
+              <div class="row">
+                <button id="btnDiff" name="btnDiff" class="btn btn-success float-right">Swap</button>
+              </div>
+              <div class="row">
+                <textarea id="outputDiff" class="form-control"></textarea>
+              </div>
+              <div class="row">
+                <button id="btnCopyDiff" name="btnCopyDiff" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+              </div>
+            </div>
+          </div>
+
       </main>
     </div>
   </div>
@@ -402,6 +498,8 @@
     <script src="js/vkbeautify.0.99.00.beta.js"></script>
     <!-- <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.0/build/highlight.min.js"></script> -->
     <script src="js/highlight.pack.js"></script>
+    <script src="js/diff_match_patch.js"></script>
+    <script src="js/jquery.pretty-text-diff.min.js"></script>
     <script src="js/script.js"></script>
     <!-- <script>hljs.initHighlightingOnLoad();</script> -->
   </body>
