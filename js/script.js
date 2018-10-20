@@ -22,6 +22,9 @@ function hideAll() {
     $("#section5").hide();
     $("#section6").hide();
     $("#section7").hide();
+    $("#section8").hide();
+    $("#section9").hide();
+
 };
 
 $('nav li a').click(function(e) {
@@ -317,3 +320,51 @@ $('#btnCopySql').click(function() {
     document.execCommand("copy");
     //$(text).blur();
 });
+
+/// ---
+
+// Hidden Character Finder
+
+/// ---
+
+// Binary
+
+// https://stackoverflow.com/a/51137655/2895831
+function binary(str) {
+    return str.split(/\s/g).map((x) => x = String.fromCharCode(parseInt(x, 2))).join("");
+}
+
+$('#btnBinary').click(function() {
+    var text = $('textarea#binary').val();
+    console.log(text);
+
+    var binaryStr = binary(text);
+    
+    document.getElementById('outputBinary').value = binaryStr;
+    $("#outputBinary").height( $("#outputBinary")[0].scrollHeight );
+});
+
+$('#btnCopyBinary').click(function() {
+    var text = $('textarea#outputBinary');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
+
+/// ---
+
+// MD5
+
+/// ---
+
+// Diff
+
+/// ---
+
+// Time Converter
+
+/// ---
+
+// kb - mb - gb Converter
+
