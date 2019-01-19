@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.0/build/styles/default.min.css"> -->
+    <link rel="stylesheet" href="css/highlight/default.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css" >
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Utility</title>
+  </head>
+  <body>
+  
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Utility</a>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- NAV -->
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <i class="fas fa-exchange-alt"></i>
+                HTML Escape/Unescape <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                URL Encode
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                HEX to RGB
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                SQL Builder (IN Clause)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Guid
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                JSON Pretty
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                XML Pretty
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                SQL Formatter
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Hidden Character Finder
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Binary
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                MD5
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Diff
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Time Converter
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                kb - mb - gb Converter
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <!-- HTML Escape/Unescape -->
+        <div id="section0">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">HTML Encode/Decode</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="escape" class="form-control">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</textarea>
+            </div>
+            <div class="row">
+              <button id="btnEscape" name="btnEscape" class="btn btn-success float-right">Escape</button>
+            </div>
+            <div class="row">
+              <textarea id="unescape" class="form-control">
+              </textarea>
+            </div>
+            <div class="row">
+              <button id="btnUnescape" name="btnUnescape" class="btn btn-success float-right">Unescape</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- URL Encode -->
+        <div id="section1">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">URL Encode</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <input id="urlEncode" name="urlEncode" class="form-control" value="http://www.alexhedley.com">
+            </div>
+            <div class="row">
+              <button id="btnEncode" name="btnEncode" class="btn btn-success float-right">Encode</button>
+            </div>
+            <div class="row">
+              <input id="urlDecode" name="urlDecode" class="form-control">
+            </div>
+            <div class="row">
+              <button id="btnDecode" name="btnDecode" class="btn btn-success float-right">Decode</button>
+            </div>
+          </div>
+          <div>
+            <p>Inspired from <a href="https://meyerweb.com/eric/tools/dencoder/">meyerweb URL Decoder/Encoder</a></p>
+          </div>
+        </div>
+
+        <!-- HEX to RGB -->
+        <div id="section2">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">HEX to RGB</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <label class="label-control">Hex:</label>
+              <div class="input-group">
+                <input type="color" id="colour" name="colour" class="form-control" value="#26264C">
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnConvert" name="btnConvert">Convert</button>
+                </span>
+               </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label for="rgbRed" class="control-label col-xs-3">Red:</label>
+                <div class="col-xs-9">
+                  <input type="number" class="form-control" id="rgbRed" placeholder="Red">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label for="rgbGreen" class="control-label col-xs-3">Green:</label>
+                <div class="col-xs-9">
+                  <input type="number" class="form-control" id="rgbGreen" placeholder="Green">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label for="rgbBlue" class="control-label col-xs-3">Blue:</label>
+                <div class="col-xs-9">
+                  <input type="number" class="form-control" id="rgbBlue" placeholder="Blue">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Builder (IN Clause) -->
+        <div id="section3">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">SQL Builder (IN Clause)</h1>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <textarea id="sqlBuilderInput" name="sqlBuilderInput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnClearSQLBuilder" name="btnClearSQLBuilder" class="btn btn-success float-right">Clear</button>
+            </div>
+            <div class="row">
+              <label class="label-control">Wrapper:</label>
+              <div class="input-group">
+                <select id="wrapper" name="wrapper">
+                  <option value=""></option>
+                  <option value="'">'</option>
+                </select>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnParse" name="btnParse">Parse</button>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <textarea id="sqlBuilderOutput" name="sqlBuilderOutput" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopySQLBuilder" name="btnCopySQLBuilder" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guid -->
+        <div id="section4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Guid</h1>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <label class="label-control">Zero:</label>
+              <div class="input-group">
+                <input type="text" id="guidZero" name="guidZero" class="form-control" value="00000000-0000-0000-0000-000000000000" placeholder="00000000-0000-0000-0000-000000000000" readonly>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnGuidZeroCopy" name="btnGuidZeroCopy"><i class="far fa-copy"></i></button>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <label class="label-control">New:</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnGuidNewCreate" name="btnGuidNewCreate">Generate</button>
+                </span>
+                <input type="text" id="guidNew" name="guidNew" class="form-control" placeholder="00000000-0000-0000-0000-000000000000" readonly>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button" id="btnGuidNewCopy" name="btnGuidNewCopy"><i class="far fa-copy"></i></button>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- JSON Pretty -->
+        <div id="section5">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">JSON Pretty Print</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="json" class="form-control"></textarea>
+              <pre id="outputJson"></pre>
+            </div>
+            <div class="row">
+              <button id="btnJsonPP" name="btnJsonPP" class="btn btn-success float-right">Pretty</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- XML Pretty -->
+        <div id="section6">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">XML Pretty Print</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="xml" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnXmlPP" name="btnXmlPP" class="btn btn-success float-right">Pretty</button>
+            </div>
+            <div class="row">
+              <textarea id="outputXml" class="form-control"></textarea>
+            </div>
+            <!-- <div class="row">
+              <pre><code id="outputXmlCode" class="xml"></code></pre>
+            </div> -->
+            <div class="row">
+              <button id="btnCopyXML" name="btnCopyXML" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Formatter -->
+        <div id="section7">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">SQL Formatter</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="sql" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnSqlPP" name="btnSqlPP" class="btn btn-success float-right">Pretty</button>
+            </div>
+            <!-- <div class="row">
+              <textarea id="outputSql" class="form-control"></textarea>
+            </div> -->
+            <div class="row">
+              <pre><code id="outputSqlCode" class="sql"></code></pre>
+            </div>
+            <div class="row">
+              <button id="btnCopySql" name="btnCopySql" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden Character Finder -->
+        <div id="section8">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Hidden Character Finder</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <p><a href="https://www.soscisurvey.de/tools/view-chars.php" target="_blank">View non-printable unicode characters</a></p>
+            </div>
+            <div class="row">
+              <textarea id="hiddenChars" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnHiddenChars" name="btnHiddenChars" class="btn btn-success float-right">Show</button>
+            </div>
+            <div class="row">
+              <textarea id="outputHiddenChars" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyHiddenChars" name="btnCopyHiddenChars" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Binary -->
+        <div id="section9">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Binary</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="binary" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnBinary" name="btnBinary" class="btn btn-success float-right">Swap</button>
+            </div>
+            <div class="row">
+              <textarea id="outputBinary" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyBinary" name="btnCopyBinary" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MD5 -->
+        <div id="section10">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">MD5</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="md5" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnMd5" name="btnMd5" class="btn btn-success float-right">Swap</button>
+            </div>
+            <div class="row">
+              <textarea id="outputMd5" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyMd5" name="btnCopyMd5" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diff -->
+        <div id="section11">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Diff</h1>
+          </div>
+          <div class="container">
+
+            <div class="row diff-wrapper">
+              <div class="col-md-4">
+                <h4>Original text</h4>
+
+                <!-- <div class="original">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only centuries, but also the leap into electronic typesetting.</div> -->
+                <textarea class="form-control diff-textarea" id="original" rows="6">Lorem Ipsum is simply printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text eve</textarea>
+              </div>
+              <div class="col-md-4">
+                <h4>Changed text</h4>
+
+                <!-- <div class="changed">Lorem Ipsum is simply typesetting dummy text of the printing and has been the industry's typesetting. Lorem Ipsum has been the industry's standard dummy text ever the 1500s, when an printer took a galley of type and simply it to make a type. It has survived not only five centuries, but survived not also the leap into electronic typesetting.</div> -->
+                <textarea class="form-control diff-textarea" id="changed" rows="6">Ting dummy text of the printing and has been the industry's typesetting. Lorem Ipsum has been the industry's</textarea>
+              </div>
+              <div class="col-md-4">
+                <h4>Diff results</h4>
+
+                <div class="diff1"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Time Converter -->
+        <div id="section12">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Time Converter</h1>
+          </div>
+          <div class="container">
+            <div class="row">
+              <textarea id="diff" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnDiff" name="btnDiff" class="btn btn-success float-right">Swap</button>
+            </div>
+            <div class="row">
+              <textarea id="outputDiff" class="form-control"></textarea>
+            </div>
+            <div class="row">
+              <button id="btnCopyDiff" name="btnCopyDiff" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- kb - mb - gb Converter -->
+        <div id="section13">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">kb - mb - gb Converter</h1>
+            </div>
+            <div class="container">
+              <div class="row">
+                <textarea id="converter" class="form-control"></textarea>
+              </div>
+              <div class="row">
+                <button id="btnConverter" name="btnConverter" class="btn btn-success float-right">Convert</button>
+              </div>
+              <div class="row">
+                <textarea id="outputConverter" class="form-control"></textarea>
+              </div>
+              <div class="row">
+                <button id="btnCopyConverter" name="btnCopyConverter" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+              </div>
+            </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.min.js" ></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vkbeautify.0.99.00.beta.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.0/build/highlight.min.js"></script> -->
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/diff_match_patch.js"></script>
+    <script src="js/jquery.pretty-text-diff.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+  </body>
+</html>

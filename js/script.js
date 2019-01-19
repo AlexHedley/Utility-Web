@@ -2,6 +2,7 @@ $(function() {
     console.log( "ready!" );
     hideAll();
 
+    updateColourLabel();
     $("#section0").show();
 
     //$("#outputXml").resizable();
@@ -32,6 +33,9 @@ $(function() {
         });
 
     });
+
+    // Testing
+    $('#binary').val("01101111 01101110 01100101 00100000 01101100 01101001 01101110 01100101");
 });
 
 function hideAll() {
@@ -135,7 +139,6 @@ $('#btnConvert').click(function() {
     var blue = hexToRgb(colour).b;
     console.log(blue);
     $('input#rgbBlue').val(blue);
-    
 });
 
 // https://stackoverflow.com/a/5624139/2895831
@@ -152,6 +155,15 @@ function hexToRgb(hex) {
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16)
     } : null;
+}
+
+//$("#colour").change(function() {
+//    $("#colourId").text($(this).val());
+//})
+
+function updateColourLabel() {
+    var colour = $('#colour').val();
+    $("#colourId").text(colour);
 }
 
 // ---
@@ -212,7 +224,7 @@ $('#btnGuidNewCreate').click(function() {
     //var text = $('input#guidNew').val();
     //console.log(text);
     // then to call it, plus stitch in '4' in the third group
-    guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+    var guid = createGuid();
     $('input#guidNew').val(guid);
 });
 
@@ -224,17 +236,36 @@ $('#btnGuidNewCopy').click(function() {
     //$(text).blur();
 });
 
+$('#btnGuidNewCreateMultiple').click(function() {
+    var guidCount = $('input#guidCount').val();
+    for (index = 0; index < guidCount; ++index) {
+        guid = createGuid();
+        console.log(guid);
+        $('#guids').append(guid+'\n');
+    }
+    $("#guids").height( $("#guids")[0].scrollHeight );
+});
 
+$('#btnGuidMultipleCopy').click(function() {
+    var text = $('textarea#guids');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
 
 // http://guid.us/GUID/JavaScript
 function S4() {
     return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
 }
 
+function createGuid() {
+    return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+}
+
 // ---
 
 // JSON Pretty
-
 
 $('#btnJsonPP').click(function() {
     var text = $('textarea#json').val();
@@ -369,9 +400,10 @@ function binary(str) {
 
 $('#btnBinary').click(function() {
     var text = $('textarea#binary').val();
-    console.log(text);
+    //console.log(text);
 
     var binaryStr = binary(text);
+    //console.log(binaryStr);
     
     document.getElementById('outputBinary').value = binaryStr;
     $("#outputBinary").height( $("#outputBinary")[0].scrollHeight );
@@ -379,10 +411,14 @@ $('#btnBinary').click(function() {
 
 $('#btnCopyBinary').click(function() {
     var text = $('textarea#outputBinary');
-    console.log(text);
+    //console.log(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
+});
+
+$('#btnBinaryClear').click(function() {
+    $('textarea#binary').val('');
 });
 
 /// ---
