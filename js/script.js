@@ -53,6 +53,7 @@ function hideAll() {
     $("#section11").hide();
     $("#section12").hide();
     $("#section13").hide();
+    $("#section14").hide();
 
     // $('nav li a').forEach(element => {
     //     console.log('element:' + element);
@@ -471,3 +472,53 @@ function humanFileSize(bytes, si) {
     } while(Math.abs(bytes) >= thresh && u < units.length - 1);
     return bytes.toFixed(1)+' '+units[u];
 }
+
+/// ---
+
+// Luhn Checker
+
+$('#btnLuhnCheck').click(function() {
+    var text = $('input#luhnCheck').val();
+    console.log(text);
+
+    var valid = valid_credit_card(text);
+    console.log(valid);
+
+    $("#luhnCheckLabel").text(valid);
+    $("#luhnCheckLabel").removeClass();
+    $("#luhnCheckLabel").addClass('label-control');
+    $("#luhnCheckLabel").addClass(valid.toString());
+});
+
+$('#btnLuhnCheckClear').click(function() {
+    $('input#luhnCheck').val('');
+});
+
+// https://gist.github.com/DiegoSalazar/4075533#file-validate_credit_card-js
+// https://gist.githubusercontent.com/DiegoSalazar/4075533/raw/71fbd7a50025b067a61aca0ccc48bde15c399d52/validate_credit_card.js
+
+// takes the form field value and returns true on valid number
+function valid_credit_card(value) {
+    // accept only digits, dashes or spaces
+      if (/[^0-9-\s]+/.test(value)) return false;
+  
+      // The Luhn Algorithm. It's so pretty.
+      var nCheck = 0, nDigit = 0, bEven = false;
+      value = value.replace(/\D/g, "");
+  
+      for (var n = value.length - 1; n >= 0; n--) {
+          var cDigit = value.charAt(n),
+                nDigit = parseInt(cDigit, 10);
+  
+          if (bEven) {
+              if ((nDigit *= 2) > 9) nDigit -= 9;
+          }
+  
+          nCheck += nDigit;
+          bEven = !bEven;
+      }
+  
+      return (nCheck % 10) == 0;
+  }
+
+/// ---

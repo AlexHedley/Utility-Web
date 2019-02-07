@@ -51,3 +51,14 @@ ins {
 del {
   background-color: #ffc6c6;
 }
+
+/* Luhn
+-------------------------------------------------- */
+.true {
+  background-color: green;
+  color: white;
+}
+.false {
+  background-color: red;
+  color: white;
+}
