@@ -494,6 +494,33 @@ $('#btnLuhnCheckClear').click(function() {
     $('input#luhnCheck').val('');
 });
 
+$('#btnLuhnChecks').click(function() {
+    var validItems = [];
+    // $("textarea#luhnChecks").each(function(){
+    //     console.log('i', this.value);
+    //     //var valid = valid_credit_card(this.value);
+    //     //console.log(valid);
+    //     //if (valid)
+    //     //    validItems.push(this.value);
+    // });
+
+    var lines = $('textarea#luhnChecks').val().split('\n');
+    for(var i = 0;i < lines.length;i++){
+        var valid = valid_credit_card(lines[i]);
+        if (valid && lines[i] !== "")
+        {
+            validItems.push(lines[i]);
+        }
+        
+    }
+    $('textarea#luhnChecks').val(validItems.join("\n"));
+    $("#luhnChecks").height( $("#luhnChecks")[0].scrollHeight );
+});
+
+$('#btnLuhnChecksClear').click(function() {
+    $('textarea#luhnChecks').val('');
+});
+
 // https://gist.github.com/DiegoSalazar/4075533#file-validate_credit_card-js
 // https://gist.githubusercontent.com/DiegoSalazar/4075533/raw/71fbd7a50025b067a61aca0ccc48bde15c399d52/validate_credit_card.js
 
