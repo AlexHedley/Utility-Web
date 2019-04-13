@@ -155,6 +155,11 @@
                                             kb - mb - gb Converter
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="#">
+                                            String Converter
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             
@@ -541,6 +546,38 @@
                         </div>
                     </div>
                     
+                    <!-- String Convert -->
+                    <div id="section14">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">String Convert</h1>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <form id="optionsForm" name="optionsForm">
+                                    <input type="radio" name="rads" value="Sentence case" /> Sentence case
+                                    <input type="radio" name="rads" value="lower case" /> lower case
+                                    <input type="radio" name="rads" value="UPPER CASE" /> UPPER CASE
+                                    <input type="radio" name="rads" value="Capitalized Case" /> Capitalized Case
+                                    <input type="radio" name="rads" value="aLtErNaTiNg cAsE" /> aLtErNaTiNg cAsE
+                                    <input type="radio" name="rads" value="Title Case" /> Title Case
+                                    <input type="radio" name="rads" value="InVeRsE CaSe" /> InVeRsE CaSe
+                                </form>
+                            </div>
+                            <div class="row">
+                                <textarea id="stringconverter" class="form-control">the quick brown fox jumps over the lazy dog</textarea>
+                            </div>
+                            <div class="row">
+                                <button id="btnStringConverter" name="btnStringConverter" class="btn btn-success float-right">Convert</button>
+                            </div>
+                            <div class="row">
+                                <textarea id="outputStringConverter" class="form-control"></textarea>
+                            </div>
+                            <div class="row">
+                                <button id="btnCopyStringConverter" name="btnCopyStringConverter" class="btn btn-success float-right"><i class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
                 </main>
 
             </div>

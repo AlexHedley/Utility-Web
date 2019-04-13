@@ -53,6 +53,7 @@ function hideAll() {
     $("#section11").hide();
     $("#section12").hide();
     $("#section13").hide();
+    $("#section14").hide();
 
     // $('nav li a').forEach(element => {
     //     console.log('element:' + element);
@@ -471,3 +472,93 @@ function humanFileSize(bytes, si) {
     } while(Math.abs(bytes) >= thresh && u < units.length - 1);
     return bytes.toFixed(1)+' '+units[u];
 }
+
+/// ---
+
+// String Convert
+
+$('#btnStringConverter').click(function() {
+    var text = $('textarea#stringconverter').val();
+    console.log(text);
+
+    var converterStr = text;
+
+    var radVal = document.optionsForm.rads.value;
+    switch(radVal) {
+        case "Sentence case":
+            converterStr = sentenceCase(text);
+          break;
+        case "lower case":
+          converterStr = text.toLowerCase();
+          break;
+        case "UPPER CASE":
+            converterStr = text.toUpperCase()
+          break;
+        case "Capitalized Case":
+          // code block
+          break;
+        case "aLtErNaTiNg cAsE":
+            converterStr = caseAlter(text);
+          break;
+        case "Title Case":
+            converterStr = titleCase(text);
+          break;
+        case "InVeRsE CaSe":
+          // code block
+          converterStr = caseAlter(text);
+          break;
+        default:
+          // code block
+      }
+    
+    document.getElementById('outputStringConverter').value = converterStr;
+    $("#outputStringConverter").height( $("#outputStringConverter")[0].scrollHeight );
+});
+
+$('#btnCopyStringConverter').click(function() {
+    var text = $('textarea#outputStringConverter');
+    console.log(text);
+    text.select();
+    document.execCommand("copy");
+    //$(text).blur();
+});
+
+// https://stackoverflow.com/a/4171093/2895831
+// /**
+//  * @param String str The text to be converted to titleCase.
+//  * @param Array glue the words to leave in lowercase. 
+//  */
+// var titleCase = function(str, glue){
+//     glue = (glue) ? glue : ['of', 'for', 'and'];
+//     return str.replace(/(\w)(\w*)/g, function(_, i, r){
+//         var j = i.toUpperCase() + (r != null ? r : "");
+//         return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+//     });
+// };
+
+//https://love2dev.com/blog/javascript-touppercase-tolowercase/
+function titleCase(str) {
+    return str.replace(/\w\S/g, function(t) { return t.toUpperCase() });
+}
+
+function sentenceCase(str) {
+    return str.replace(/[a-z]/i, function (letter) {
+    return letter.toUpperCase();
+  }).trim();
+}
+
+function caseAlter(str){
+    var output = "";
+    for(var i = 0; i < str.length; i++){
+        var ch = str[i];
+
+        if(ch === ch.toUpperCase()) {
+            output += ch.toLowerCase();
+        } else {
+            output += ch.toUpperCase();
+        }           
+    }
+    return output;
+}
+
+/// ---
