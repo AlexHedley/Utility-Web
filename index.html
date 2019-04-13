@@ -157,6 +157,11 @@
                                     </li>
                                     <li>
                                         <a href="#">
+                                            luhn checker
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             String Converter
                                         </a>
                                     </li>
@@ -545,9 +550,36 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- LUHN CHECK ALGORITHM -->
+                    <div id="section14">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Luhn Check Algorithm</h1>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <input id="luhnCheck" name="luhnCheck" class="form-control" value="">
+                            </div>
+                            <div class="row">
+                                <button id="btnLuhnCheck" name="btnLuhnCheck" class="btn btn-success float-right">Check</button>
+                                <button id="btnLuhnCheckClear" name="btnLuhnCheckClear" class="btn btn-info float-right">Clear</button>
+                            </div>
+                            <div class="row">
+                                <label class="label-control">Valid?</label>
+                                <label class="label-control" id="luhnCheckLabel"></label>
+                            </div>
+                            <div class="row">
+                                <textarea id="luhnChecks" class="form-control"></textarea>
+                            </div>
+                            <div class="row">
+                                <button id="btnLuhnChecks" name="btnLuhnChecks" class="btn btn-success float-right">Check</button>
+                                <button id="btnLuhnChecksClear" name="btnLuhnChecksClear" class="btn btn-info float-right">Clear</button>
+                            </div>
+                        </div>
+                    </div>
                     
                     <!-- String Convert -->
-                    <div id="section14">
+                    <div id="section15">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">String Convert</h1>
                         </div>
