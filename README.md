@@ -38,7 +38,7 @@ Functions:
 
 ## Contributing
 
-If there are any open issues and you have some time to help out, please do. It's a bit rough and ready, could be better organised and split into separate views etc, just adding as and when I can find a few spare minutes.
+If there are any open [issues]((https://GitHub.com/AlexHedley/Utility-Web/issues/)) and you have some time to help out, please do. It's a bit rough and ready, could be better organised and split into separate views etc, just adding as and when I can find a few spare minutes.
 
 ---
 
@@ -50,15 +50,13 @@ I've linked to SO or sites I've borrowed code from, please do the same if you ad
 
 ## Change Log
 
-13th April 2019 - Added String Convert
-
-Move to: [Change Log](CHANGELOG.md)
+[Change Log](CHANGELOG.md)
 
 ---
 
 ## License
 
-MIT
+[MIT](LICENSE)
 
 ---
 
