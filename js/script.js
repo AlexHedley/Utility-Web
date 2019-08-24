@@ -179,15 +179,16 @@ $('#btnClearSQLBuilder').click(function() {
 $('#btnParse').click(function() {
     var text = $('textarea#sqlBuilderInput').val();
     var split = text.trim().split("\n");
-    console.log(split);
     split = cleanArray(split);
 
+    if ($("#chkRemoveDuplicates").is(':checked')) {
+        split = [...new Set(split)];
+    }
+
     var wrapper = $('#wrapper').find(":selected").text();
-    console.log(wrapper);
 
     var output = '';
     output = output + wrapper + split.join(wrapper + "," + wrapper) + wrapper
-    console.log(output);
     output = 'IN (' + output + ')';
 
     $('textarea#sqlBuilderOutput').val(output);
