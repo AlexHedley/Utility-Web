@@ -229,6 +229,7 @@ $('#btnGuidNewCreate').click(function() {
     // then to call it, plus stitch in '4' in the third group
     var guid = createGuid();
     $('input#guidNew').val(guid);
+    $('input#guidNewHidden').val(guid);
 });
 
 $('#btnGuidNewCopy').click(function() {
@@ -265,6 +266,27 @@ function S4() {
 function createGuid() {
     return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
+
+$("#chkRemoveDashesZero").on('click', function() {
+    if ($("#chkRemoveDashesZero").is(':checked')) {
+        var guid = $("#guidZero").val();
+        var guidStripped = guid.replace(/-/g, "");
+        $("#guidZero").val(guidStripped);
+    } else {
+        $("#guidZero").val('00000000-0000-0000-0000-000000000000');
+    }
+});
+
+$("#chkRemoveDashes").on('click', function() {
+    if ($("#chkRemoveDashes").is(':checked')) {
+        var guid = $("#guidNew").val();
+        var guidStripped = guid.replace(/-/g, "");
+        $("#guidNew").val(guidStripped);
+    } else {
+        var guid = $("#guidNewHidden").val();
+        $("#guidNew").val(guid);
+    }
+});
 
 // ---
 
