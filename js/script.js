@@ -55,6 +55,7 @@ function hideAll() {
     $("#section13").hide();
     $("#section14").hide();
     $("#section15").hide();
+    $("#section16").hide();
 
     // $('nav li a').forEach(element => {
     //     console.log('element:' + element);
@@ -123,6 +124,60 @@ function decode() {
 	var encoded = obj.value;
 	obj.value = decodeURIComponent(encoded.replace(/\+/g,  " "));
 }
+
+// ---
+
+// URL
+
+//element.txtName.value.lenght;
+$("#url").change(function() {
+    alert($(this).val().length);
+    console.log($(this).val().length);
+    $("#urlCount").text($(this).val().length);
+    $("#urlCount").html($(this).val().length);
+})
+
+$('#btnUrlSplit').click(function() {
+    var urlStr = $("#url").val();
+    console.log(urlStr);
+
+    $("#urlCount").text(urlStr.length);
+
+    var url = new URL(urlStr);
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/URL#Properties
+    var hostname = url.hostname;
+    console.log(hostname); // "www.example.com"
+    $('#hostname').val(hostname);
+    
+    var pathname = url.pathname
+    console.log(pathname); // "/cats"
+    $('#pathname').val(pathname);
+
+    console.log(url.href); // "http://www.example.com/cats#tabby"
+    console.log(url.search);
+    //console.log(url.searchParams.get("id")); // "123"
+
+    // https://davidwalsh.name/query-string-javascript
+    var urlParams = new URLSearchParams(url.search);
+
+    var keys = urlParams.keys();
+    for (key of keys) { 
+        console.log(key); 
+    }
+
+    $("#urlParams > tbody").empty();
+
+    var entries = urlParams.entries();
+    for (pair of entries) { 
+        console.log(pair[0], pair[1]); 
+
+        var markup = "<tr><td>" + pair[0] + "</td><td>" + pair[1] + "</td></tr>";
+        console.log(markup);
+        $("#urlParams tbody").append(markup);
+    }
+
+});
 
 // ---
 

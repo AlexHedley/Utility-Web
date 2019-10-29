@@ -97,6 +97,11 @@
                                     </li>
                                     <li>
                                         <a href="#">
+                                            URL
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             HEX to RGB
                                         </a>
                                     </li>
@@ -219,9 +224,79 @@
                             <p>Inspired from <a href="https://meyerweb.com/eric/tools/dencoder/">meyerweb URL Decoder/Encoder</a></p>
                         </div>
                     </div>
+                    
+                    <!-- URL -->
+                    <div id="section2">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">URL</h1>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="input-group mb-3">
+                                    <!-- <input class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2"> -->
+                                    <input type="text" id="url" name="url" class="form-control" value="http://www.alexhedley.com/path?query=this&param=that">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="urlCount">#</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button id="btnUrlSplit" name="btnUrlSplit" class="btn btn-success float-right">Split</button>
+                            </div>
+
+                            <br />
+
+                            <!-- Hostname -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Hostname</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="hostname" aria-label="hostname" id="hostname" name="hostname" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pathname -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Pathname</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="pathname" aria-label="pathname" id="pathname" name="pathname" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Params -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <table id="urlParams">
+                                        <thead>
+                                            <tr>
+                                                <th>Key</th>
+                                                <th>Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot></tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td><em>key</em></td>
+                                                <td><em>value</em></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                     <!-- HEX to RGB -->
-                    <div id="section2">
+                    <div id="section3">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">HEX to RGB</h1>
                         </div>
@@ -267,7 +342,7 @@
                     </div>
 
                     <!-- SQL Builder (IN Clause) -->
-                    <div id="section3">
+                    <div id="section4">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">SQL Builder (IN Clause)</h1>
                         </div>
@@ -309,7 +384,7 @@
                     </div>
 
                     <!-- Guid -->
-                    <div id="section4">
+                    <div id="section5">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Guid</h1>
                         </div>
@@ -372,7 +447,7 @@
                     </div>
 
                     <!-- JSON Pretty -->
-                    <div id="section5">
+                    <div id="section6">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">JSON Pretty Print</h1>
                         </div>
@@ -388,7 +463,7 @@
                     </div>
 
                     <!-- XML Pretty -->
-                    <div id="section6">
+                    <div id="section7">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">XML Pretty Print</h1>
                         </div>
@@ -412,7 +487,7 @@
                     </div>
 
                     <!-- SQL Formatter -->
-                    <div id="section7">
+                    <div id="section8">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">SQL Formatter</h1>
                         </div>
@@ -436,7 +511,7 @@
                     </div>
 
                     <!-- Hidden Character Finder -->
-                    <div id="section8">
+                    <div id="section9">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Hidden Character Finder</h1>
                             <p>TODO!</p>
@@ -461,7 +536,7 @@
                     </div>
 
                     <!-- Binary -->
-                    <div id="section9">
+                    <div id="section10">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Binary</h1>
                         </div>
@@ -483,7 +558,7 @@
                     </div>
 
                     <!-- MD5 -->
-                    <div id="section10">
+                    <div id="section11">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">MD5</h1>
                             <p>TODO!</p>
@@ -505,7 +580,7 @@
                     </div>
 
                     <!-- Diff -->
-                    <div id="section11">
+                    <div id="section12">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Diff</h1>
                         </div>
@@ -533,7 +608,7 @@
                     </div>
 
                     <!-- Time Converter -->
-                    <div id="section12">
+                    <div id="section13">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Time Converter</h1>
                             <p>TODO!</p>
@@ -555,7 +630,7 @@
                     </div>
       
                     <!-- kb - mb - gb Converter -->
-                    <div id="section13">
+                    <div id="section14">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">kb - mb - gb Converter</h1>
                             <p>TODO!</p>
@@ -577,7 +652,7 @@
                     </div>
 
                     <!-- LUHN CHECK ALGORITHM -->
-                    <div id="section14">
+                    <div id="section15">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">Luhn Check Algorithm</h1>
                         </div>
@@ -604,7 +679,7 @@
                     </div>
                     
                     <!-- String Convert -->
-                    <div id="section15">
+                    <div id="section16">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                             <h1 class="h2">String Convert</h1>
                         </div>
