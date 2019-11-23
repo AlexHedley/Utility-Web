@@ -19,6 +19,7 @@ Functions:
 * HTML Encode/Decode
 * HTML Escape/Unescape
 * URL Encode
+* URL Parser
 * HEX to RGB
 * SQL Builder (IN Clause)
 * Guid
