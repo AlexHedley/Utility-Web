@@ -2,9 +2,15 @@ $(function() {
     console.log( "ready!" );
     hideAll();
 
-    updateColourLabel();
-    $("#section0").show();
+    //$("#section0").show();
 
+    var currentTab = localStorage.getItem('CurrentTab');
+    console.log('CurrentTab', currentTab);
+    var id = "#section" + currentTab;
+    $(id).show();
+
+    updateColourLabel();
+    
     //$("#outputXml").resizable();
     //$('#outputXml').autoResize();
     //autosize($('#outputXml'));
@@ -79,6 +85,11 @@ $('nav li a').click(function(e) {
     hideAll();
     var id = "#section" + el;
     $(id).show();
+
+    // get the text
+    var text = $(this).text().trim();
+    // set the item in localStorage
+    localStorage.setItem('CurrentTab', el);
 });
 
 // HTML Encode/Decode
