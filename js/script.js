@@ -670,12 +670,19 @@ $('#btnStringConverter').click(function() {
           // code block
           converterStr = caseAlter(text);
           break;
+        case "Remove Whitespace":
+            converterStr = text.trim().replace(/ /g,'');
+            break;
         default:
           // code block
       }
     
     document.getElementById('outputStringConverter').value = converterStr;
     $("#outputStringConverter").height( $("#outputStringConverter")[0].scrollHeight );
+});
+
+$('#btnClearStringConverter').click(function() {
+    $('textarea#stringconverter').val('');
 });
 
 $('#btnCopyStringConverter').click(function() {
