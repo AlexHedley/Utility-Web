@@ -1,11 +1,11 @@
 $(function() {
-    console.log( "ready!" );
+    console.debug( "ready!" );
     hideAll();
 
     //$("#section0").show();
 
     var currentTab = localStorage.getItem('CurrentTab');
-    console.log('CurrentTab', currentTab);
+    console.debug('CurrentTab', currentTab);
     var id = "#section" + currentTab;
     $(id).show();
 
@@ -64,13 +64,13 @@ function hideAll() {
     $("#section16").hide();
 
     // $('nav li a').forEach(element => {
-    //     console.log('element:' + element);
+    //     console.debug('element:' + element);
     //     var el = $(this).parent().index();
     //     var id = "#section" + el;
     //     $(id).hide();
     // });
     // var lis = document.getElementsByTagName("nav").getElementsByTagName("li");
-    // console.log(lis);
+    // console.debug(lis);
 };
 
 $('nav li a').click(function(e) {
@@ -80,7 +80,7 @@ $('nav li a').click(function(e) {
     $(this).addClass("active");
 
     var el = $(this).parent().index();
-    console.log(el);
+    console.debug(el);
 
     hideAll();
     var id = "#section" + el;
@@ -96,14 +96,14 @@ $('nav li a').click(function(e) {
 $('#btnEscape').click(function() {
     var text = $('textarea#escape').val();
     var escapeText = escape(text);
-    console.log(escapeText);
+    console.debug(escapeText);
     $('textarea#unescape').val(escapeText);
 });
 
 $('#btnUnescape').click(function() {
     var text = $('textarea#unescape').val();
     var unescapeText = unescape(text);
-    console.log(unescapeText);
+    console.debug(unescapeText);
     $('textarea#escape').val(unescapeText);
 });
 
@@ -113,13 +113,13 @@ $('#btnUnescape').click(function() {
 
 $('#btnEncode').click(function() {
     var text = $('input#urlEncode').val();
-    console.log(text);
+    console.debug(text);
     $('input#urlDecode').val(encodeURIComponent(text).replace(/'/g,"%27").replace(/"/g,"%22"));
 });
 
 $('#btnDecode').click(function() {
     var text = $('input#urlDecode').val();
-    console.log(text);
+    console.debug(text);
     $('input#urlEncode').val(decodeURIComponent(text.replace(/\+/g,  " ")));
 });
 
@@ -143,14 +143,14 @@ function decode() {
 //element.txtName.value.lenght;
 $("#url").change(function() {
     alert($(this).val().length);
-    console.log($(this).val().length);
+    console.debug($(this).val().length);
     $("#urlCount").text($(this).val().length);
     $("#urlCount").html($(this).val().length);
 })
 
 $('#btnUrlSplit').click(function() {
     var urlStr = $("#url").val();
-    console.log(urlStr);
+    console.debug(urlStr);
 
     $("#urlCount").text(urlStr.length);
 
@@ -158,33 +158,33 @@ $('#btnUrlSplit').click(function() {
 
     // https://developer.mozilla.org/en-US/docs/Web/API/URL#Properties
     var hostname = url.hostname;
-    console.log(hostname); // "www.example.com"
+    console.debug(hostname); // "www.example.com"
     $('#hostname').val(hostname);
     
     var pathname = url.pathname
-    console.log(pathname); // "/cats"
+    console.debug(pathname); // "/cats"
     $('#pathname').val(pathname);
 
-    console.log(url.href); // "http://www.example.com/cats#tabby"
-    console.log(url.search);
-    //console.log(url.searchParams.get("id")); // "123"
+    console.debug(url.href); // "http://www.example.com/cats#tabby"
+    console.debug(url.search);
+    //console.debug(url.searchParams.get("id")); // "123"
 
     // https://davidwalsh.name/query-string-javascript
     var urlParams = new URLSearchParams(url.search);
 
     var keys = urlParams.keys();
     for (key of keys) { 
-        console.log(key); 
+        console.debug(key); 
     }
 
     $("#urlParams > tbody").empty();
 
     var entries = urlParams.entries();
     for (pair of entries) { 
-        console.log(pair[0], pair[1]); 
+        console.debug(pair[0], pair[1]); 
 
         var markup = "<tr><td>" + pair[0] + "</td><td>" + pair[1] + "</td></tr>";
-        console.log(markup);
+        console.debug(markup);
         $("#urlParams tbody").append(markup);
     }
 
@@ -196,16 +196,16 @@ $('#btnUrlSplit').click(function() {
 
 $('#btnConvert').click(function() {
     var colour = $('input#colour').val();
-    console.log(colour);
+    console.debug(colour);
 
     var red = hexToRgb(colour).r;
-    console.log(red);
+    console.debug(red);
     $('input#rgbRed').val(red);
     var green = hexToRgb(colour).g;
-    console.log(green);
+    console.debug(green);
     $('input#rgbGreen').val(green);
     var blue = hexToRgb(colour).b;
-    console.log(blue);
+    console.debug(blue);
     $('input#rgbBlue').val(blue);
 });
 
@@ -272,7 +272,7 @@ function cleanArray(actual) {
 
 $('#btnCopySQLBuilder').click(function() {
     var text = $('textarea#sqlBuilderOutput');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
 });
@@ -283,7 +283,7 @@ $('#btnCopySQLBuilder').click(function() {
 
 $('#btnGuidZeroCopy').click(function() {
     var text = $('input#guidZero');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -291,16 +291,19 @@ $('#btnGuidZeroCopy').click(function() {
 
 $('#btnGuidNewCreate').click(function() {
     //var text = $('input#guidNew').val();
-    //console.log(text);
+    //console.debug(text);
     // then to call it, plus stitch in '4' in the third group
     var guid = createGuid();
+    if ($("#chkRemoveDashes").is(':checked')) {
+        guid = guid.replace(/-/g, "");
+    }
     $('input#guidNew').val(guid);
     $('input#guidNewHidden').val(guid);
 });
 
 $('#btnGuidNewCopy').click(function() {
     var text = $('input#guidNew');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -308,21 +311,32 @@ $('#btnGuidNewCopy').click(function() {
 
 $('#btnGuidNewCreateMultiple').click(function() {
     var guidCount = $('input#guidCount').val();
+    var guids = '';
     for (index = 0; index < guidCount; ++index) {
         guid = createGuid();
-        console.log(guid);
-        $('#guids').append(guid+'\n');
+        if ($("#chkRemoveDashesMultiple").is(':checked')) {
+            guid = guid.replace(/-/g, "");
+        }
+        //console.debug(guid);
+        //$('#guids').append(guid+'\n');
+        guids += guid+'\n'
     }
+    $('#guids').val(guids);
     $("#guids").height( $("#guids")[0].scrollHeight );
 });
 
 $('#btnGuidMultipleCopy').click(function() {
     var text = $('textarea#guids');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
 });
+
+$('#btnGuidMultipleClear').click(function() {
+    $('textarea#guids').val('');
+});
+
 
 // http://guid.us/GUID/JavaScript
 function S4() {
@@ -360,7 +374,7 @@ $("#chkRemoveDashes").on('click', function() {
 
 $('#btnJsonPP').click(function() {
     var text = $('textarea#json').val();
-    console.log(text);
+    console.debug(text);
     
     //$(text).blur();
 
@@ -406,7 +420,7 @@ function syntaxHighlight(json) {
 
 $('#btnXmlPP').click(function() {
     var text = $('textarea#xml').val();
-    console.log(text);
+    console.debug(text);
 
     var prettyXml = prettifyXml(text);
     document.getElementById('outputXml').value = prettyXml;
@@ -418,7 +432,7 @@ $('#btnXmlPP').click(function() {
 
 $('#btnCopyXML').click(function() {
     var text = $('textarea#outputXml');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -457,7 +471,7 @@ var prettifyXml = function(sourceXml)
 
 $('#btnSqlPP').click(function() {
     var text = $('textarea#sql').val();
-    console.log(text);
+    console.debug(text);
 
     var prettySql = vkbeautify.sql(text, 4);
     
@@ -470,7 +484,7 @@ $('#btnSqlPP').click(function() {
 
 $('#btnCopySql').click(function() {
     var text = $('textarea#outputSql');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -491,10 +505,10 @@ function binary(str) {
 
 $('#btnBinary').click(function() {
     var text = $('textarea#binary').val();
-    //console.log(text);
+    //console.debug(text);
 
     var binaryStr = binary(text);
-    //console.log(binaryStr);
+    //console.debug(binaryStr);
     
     document.getElementById('outputBinary').value = binaryStr;
     $("#outputBinary").height( $("#outputBinary")[0].scrollHeight );
@@ -502,7 +516,7 @@ $('#btnBinary').click(function() {
 
 $('#btnCopyBinary').click(function() {
     var text = $('textarea#outputBinary');
-    //console.log(text);
+    //console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -530,7 +544,7 @@ $('#btnBinaryClear').click(function() {
 
 $('#btnConverter').click(function() {
     var text = $('textarea#converter').val();
-    console.log(text);
+    console.debug(text);
 
     var converterStr = humanFileSize(text, true);
     
@@ -540,7 +554,7 @@ $('#btnConverter').click(function() {
 
 $('#btnCopyConverter').click(function() {
     var text = $('textarea#outputConverter');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
@@ -569,10 +583,10 @@ function humanFileSize(bytes, si) {
 
 $('#btnLuhnCheck').click(function() {
     var text = $('input#luhnCheck').val();
-    console.log(text);
+    console.debug(text);
 
     var valid = valid_credit_card(text);
-    console.log(valid);
+    console.debug(valid);
 
     $("#luhnCheckLabel").text(valid);
     $("#luhnCheckLabel").removeClass();
@@ -587,9 +601,9 @@ $('#btnLuhnCheckClear').click(function() {
 $('#btnLuhnChecks').click(function() {
     var validItems = [];
     // $("textarea#luhnChecks").each(function(){
-    //     console.log('i', this.value);
+    //     console.debug('i', this.value);
     //     //var valid = valid_credit_card(this.value);
-    //     //console.log(valid);
+    //     //console.debug(valid);
     //     //if (valid)
     //     //    validItems.push(this.value);
     // });
@@ -642,7 +656,7 @@ function valid_credit_card(value) {
 
 $('#btnStringConverter').click(function() {
     var text = $('textarea#stringconverter').val();
-    console.log(text);
+    console.debug(text);
 
     var converterStr = text;
 
@@ -687,7 +701,7 @@ $('#btnClearStringConverter').click(function() {
 
 $('#btnCopyStringConverter').click(function() {
     var text = $('textarea#outputStringConverter');
-    console.log(text);
+    console.debug(text);
     text.select();
     document.execCommand("copy");
     //$(text).blur();
