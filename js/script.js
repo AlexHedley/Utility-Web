@@ -62,6 +62,7 @@ function hideAll() {
     $("#section14").hide();
     $("#section15").hide();
     $("#section16").hide();
+    $("#section17").hide();
 
     // $('nav li a').forEach(element => {
     //     console.debug('element:' + element);
