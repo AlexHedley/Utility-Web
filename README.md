@@ -34,6 +34,7 @@ Functions:
 * kb - mb - gb Converter
 * luhn checker
 * String Converter
+* Notepad
 
 ---
 
