@@ -35,6 +35,8 @@ Functions:
 * luhn checker
 * String Converter
 * Notepad
+* Ascii
+* Picker Wheel
 
 ---
 
@@ -68,4 +70,4 @@ App with helper functions for day to day jobs
 
 .NET Version: [Utility-.NET](https://github.com/AlexHedley/Utility)
 
- Mac Version: [Utility-Mac](https://github.com/AlexHedley/Utility-Mac)
+Mac Version: [Utility-Mac](https://github.com/AlexHedley/Utility-Mac)

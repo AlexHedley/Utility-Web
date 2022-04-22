@@ -62,3 +62,58 @@ del {
   background-color: red;
   color: white;
 }
+
+/* Picker Wheel
+-------------------------------------------------- */
+text{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  pointer-events: none;
+}
+
+#chart{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  left: 200px;
+}
+
+#name{
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  top: 0;
+  left: 720px;
+}
+
+#name h1{
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 50%;
+  -webkit-transform:translate(0,-50%);
+          transform:translate(0,-50%);
+}
+
+
+/* TABLE */
+
+table#choices {
+  background-color: #FFFDD0;
+}
+
+table#choices tr, th, td {
+  border: 1px solid black;
+}
+
+td:nth-child(2) {
+  color: green; /* .check */
+}
+
+td:nth-child(3) {
+  color: red; /* .cross */
+}
