@@ -64,6 +64,7 @@ function hideAll() {
     $("#section16").hide();
     $("#section17").hide();
     $("#section18").hide();
+    $("#section19").hide();
 
     // $('nav li a').forEach(element => {
     //     console.debug('element:' + element);
@@ -94,7 +95,10 @@ $('nav li a').click(function(e) {
     localStorage.setItem('CurrentTab', el);
 });
 
+// ---
+
 // HTML Encode/Decode
+
 $('#btnEscape').click(function() {
     var text = $('textarea#escape').val();
     var escapeText = escape(text);
@@ -789,3 +793,310 @@ function toHex(str) {
 //     // octalStr='377';
 //     // num = parseInt(octalStr,8);  // num now holds 255
 // }
+
+// ---
+
+// Picker Wheel
+
+
+var padding = {top:20, right:40, bottom:0, left:0},
+    w = 500 - padding.left - padding.right,
+    h = 500 - padding.top  - padding.bottom,
+    r = Math.min(w, h)/2,
+    rotation = 0,
+    oldrotation = 0,
+    picked = 100000,
+    oldpick = [],
+    color = d3.scale.category20();//category20c()
+    //randomNumbers = getRandomNumbers();
+
+function getData() {
+    // var choices = [];
+    // var table = document.getElementById("choices");
+    // for (var i = 0, row; row = table.rows[i]; i++) {
+    //     for (var j = 0, col; col = row.cells[j]; j++) {
+    //         var name = col.innerText
+    //         choices.push({"label":name, "value":1,  "name":name})
+    //     }
+    // }
+    // // choices.shift(); // Remove the header
+    // // choices.pop(); // Remove the footer
+    // return choices.slice(1, -1);
+
+    // Filter by value = 1
+    var items = JSON.parse(window.localStorage.getItem('names'));
+    // TODO: Check for empty
+    var filteredItems = items.filter(i => i.value === true);
+
+    return filteredItems;
+}
+
+// Create Spinner
+function createSpinner() {
+
+    // Clear existing spinner - if one exists.
+    document.getElementById('chart').innerHTML = "";
+
+    var data = getData();
+
+    var svg = d3.select('#chart')
+        .append("svg")
+        // .data([data])
+        .data([getData()])
+        .attr("width",  w + padding.left + padding.right)
+        .attr("height", h + padding.top + padding.bottom);
+
+    var container = svg.append("g")
+        .attr("class", "chartholder")
+        .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
+
+    var vis = container
+        .append("g");
+        
+    var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
+
+    // declare an arc generator function
+    var arc = d3.svg.arc().outerRadius(r);
+
+    // select paths, use arc generator to draw
+    var arcs = vis.selectAll("g.slice")
+        .data(pie)
+        .enter()
+        .append("g")
+        .attr("class", "slice");
+        
+
+    arcs.append("path")
+        .attr("fill", function(d, i){ return color(i); })
+        .attr("d", function (d) { return arc(d); });
+
+    // add the text
+    arcs.append("text").attr("transform", function(d){
+            d.innerRadius = 0;
+            d.outerRadius = r;
+            d.angle = (d.startAngle + d.endAngle)/2;
+            return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius -10) +")";
+        })
+        .attr("text-anchor", "end")
+        .text( function(d, i) {
+            return data[i].label;
+        });
+
+    container.on("click", spin);
+
+    function spin(d){
+        container.on("click", null);
+
+        //all slices have been seen, all done
+        console.debug("OldPick: " + oldpick.length, "Data length: " + data.length);
+        if(oldpick.length == data.length){
+            console.debug("done");
+            container.on("click", null);
+            return;
+        }
+
+        var  ps          = 360/data.length,
+                pieslice = Math.round(1440/data.length),
+                rng      = Math.floor((Math.random() * 1440) + 360);
+            
+        rotation = (Math.round(rng / ps) * ps);
+        
+        picked = Math.round(data.length - (rotation % 360)/ps);
+        picked = picked >= data.length ? (picked % data.length) : picked;
+
+
+        if(oldpick.indexOf(picked) !== -1){
+            d3.select(this).call(spin);
+            return;
+        } else {
+            oldpick.push(picked);
+        }
+
+        rotation += 90 - Math.round(ps/2);
+
+        vis.transition()
+            .duration(3000)
+            .attrTween("transform", rotTween)
+            .each("end", function(){
+
+                //mark name as seen
+                d3.select(".slice:nth-child(" + (picked + 1) + ") path")
+                    .attr("fill", "#111")
+                    .attr("opacity", "0.8");
+
+                //populate name
+                d3.select("#name h1")
+                    .text(data[picked].name);
+
+                oldrotation = rotation;
+            
+                container.on("click", spin);
+            });
+    }
+
+    //make arrow
+    svg.append("g")
+        .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
+        .append("path")
+        .attr("d", "M-" + (r*.15) + ",0L0," + (r*.05) + "L0,-" + (r*.05) + "Z")
+        .style({"fill":"black"});
+
+    //draw spin circle
+    container.append("circle")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", 60)
+        .style({"fill":"white","cursor":"pointer"});
+
+    //spin text
+    container.append("text")
+        .attr("x", 0)
+        .attr("y", 15)
+        .attr("text-anchor", "middle")
+        .text("SPIN")
+        .style({"font-weight":"bold", "font-size":"30px"});
+}
+
+function rotTween(to) {
+    var i = d3.interpolate(oldrotation % 360, rotation);
+    return function(t) {
+    return "rotate(" + i(t) + ")";
+    };
+}
+
+function getRandomNumbers(){
+    var array = new Uint16Array(1000);
+    var scale = d3.scale.linear().range([360, 1440]).domain([0, 100000]);
+
+    if(window.hasOwnProperty("crypto") && typeof window.crypto.getRandomValues === "function"){
+        window.crypto.getRandomValues(array);
+    } else {
+        //no support for crypto, get crappy random numbers
+        for(var i=0; i < 1000; i++){
+            array[i] = Math.floor(Math.random() * 100000) + 1;
+        }
+    }
+
+    return array;
+}
+
+// Reset Wheel
+function resetWheel() {
+    createSpinner();
+}
+
+// Add User
+function addUser() {
+    var name = document.getElementById("NewUser").value;
+
+    var item = {
+        "label": name,
+        "value": true,
+        "name": name
+    }
+
+    addUserWithName(item, true);
+    document.getElementById("NewUser").value = "";
+}
+
+// Add User With Name
+function addUserWithName(item, add = false) {
+    console.log(item.name);
+    var tbodyRef = document.getElementById('choices').getElementsByTagName('tbody')[0];
+    var newRow = tbodyRef.insertRow();
+
+    var nameCell = newRow.insertCell();
+    var nameText = document.createTextNode(item.name);
+    nameCell.appendChild(nameText);
+
+    var checked = item.value ? '✔' : '';
+
+    var checkCell = newRow.insertCell();
+    var checkText = document.createTextNode(checked);
+    checkCell.appendChild(checkText);
+
+    checkCell.addEventListener("click", function() {
+        var on = true;
+        if (checkCell.innerHTML === "") {
+            checkCell.innerHTML = '✔';
+        } else {
+            checkCell.innerHTML = '';
+            on = false;
+        }
+        updateLocalStorageRow(checkCell.previousElementSibling.innerHTML, on);
+        populateTableFromLocalStorage();
+    });
+
+    var crossCell = newRow.insertCell();
+    var crossText = document.createTextNode('✘');
+    crossCell.appendChild(crossText);
+
+    crossCell.addEventListener("click", function() {
+        var row = crossCell.parentNode.rowIndex-1;
+        crossCell.parentNode.parentNode.deleteRow(row);
+        deleteLocalStorageRow(row);
+        populateTableFromLocalStorage();
+    });
+
+    if (add) {
+        addLocalStorageItem(item);
+        populateTableFromLocalStorage();
+    }
+}
+
+function populateTableFromLocalStorage() {
+    document.querySelectorAll("table tbody tr").forEach(function(e){e.remove()});
+    document.getElementById('choices').querySelectorAll("table tbody tr").forEach(function(e){e.remove()});
+    var items = JSON.parse(window.localStorage.getItem('names'));
+
+    if (!items) return;
+
+    for (var i = 0; i < items.length; i++) {
+        addUserWithName(items[i]);
+    }
+
+    createSpinner();
+}
+
+function addLocalStorageItem(item) {
+    var names = JSON.parse(window.localStorage.getItem('names'));
+    if (!names) names = [];
+    names.push(item);
+    localStorage.removeItem("names");
+    localStorage.setItem("names", JSON.stringify(names));
+}
+
+function deleteLocalStorageRow(row) {
+    var names = JSON.parse(window.localStorage.getItem('names'));
+    localStorage.removeItem("names");
+    names.splice(row, 1);
+    localStorage.setItem("names", JSON.stringify(names));
+}
+
+function updateLocalStorageRow(name, on = true) {
+    var names = JSON.parse(window.localStorage.getItem('names'));
+    
+    const index = names.findIndex(item => item.name === name);
+    names.splice(index, 1);
+
+    var item = {
+        "label": name,
+        "value": on,
+        "name": name
+    }
+    names.push(item);
+    localStorage.removeItem("names");
+    localStorage.setItem("names", JSON.stringify(names));
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    // Your code to run since DOM is loaded and ready
+    if (typeof(Storage) !== "undefined") {
+        // Code for localStorage
+        populateTableFromLocalStorage();
+    } else {
+        // No web storage Support.
+        alert('no local storage support');
+    }
+    
+});

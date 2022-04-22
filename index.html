@@ -196,6 +196,11 @@
                                             Ascii
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="#">
+                                            Picker Wheel
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             
@@ -663,7 +668,7 @@
                             </div>
                         </div>
                     </div>
-      
+
                     <!-- kb - mb - gb Converter -->
                     <div id="section14">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -832,6 +837,65 @@
                                 <p>Inspired from <a href="http://asciivalue.com/" target="_blank">ASCIIvalue</a></p>
                             </div>
                             
+                        </div>
+                    </div>
+
+                    <!-- Picker Wheel -->
+                    <div id="section19">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Picker Wheel</h1>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                
+                                    <div>
+                                        <table id="choices">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    
+                                    <br />
+                                
+                                    <div>
+                                        <label for="NewUser">User</label><input id="NewUser" name="NewUser" />
+                                        <br />
+                                        <button onclick="addUser()">Add</button>
+                                    </div>
+                                
+                                    <br />
+                                
+                                    <div>
+                                        <button onclick="resetWheel()">Reset Wheel</button>
+                                    </div>
+                                
+                                    <br />
+                                
+                                    <div id="chart">
+                                    </div>
+                                
+                                    <div id="name">
+                                        <h1></h1>
+                                    </div>
+                                
+                                    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
