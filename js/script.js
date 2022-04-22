@@ -63,6 +63,7 @@ function hideAll() {
     $("#section15").hide();
     $("#section16").hide();
     $("#section17").hide();
+    $("#section18").hide();
 
     // $('nav li a').forEach(element => {
     //     console.debug('element:' + element);
@@ -747,3 +748,44 @@ function caseAlter(str){
 }
 
 /// ---
+
+// Notepad
+
+// Ascii
+
+$('#btnAscii').click(function() {
+    var text = $('input#ascii').val();
+    console.debug(text);
+    
+    $("#asciiItems > tbody").empty();
+    var charArray = text.split('');
+    
+    var markup = "";
+    for (i in charArray) {
+        var dec = "N/A";
+        var hex = toHex(charArray[i]);
+        var oct = "N/A";
+        var markup = "<tr><td>" + charArray[i] + "</td><td>" + dec + "</td><td>" + hex + "</td><td>" + oct + "</td></tr>";
+
+        $("#asciiItems tbody").append(markup);
+    }
+});
+
+// function toBin(str) {
+//     return str.split("").reduce(function (a, b) { return a + b.charCodeAt(0).toString(2)}, "");
+// }
+
+function toHex(str) {
+    return str.split("").reduce((hex,c)=>hex+=c.charCodeAt(0).toString(16).padStart(4,"0"),"");
+
+    // hexStr='7F';
+    // num = parseInt(hexStr,16);   // num now holds 127
+}
+
+// function toOct(str) {
+//     var num = parseInt(str);
+//     return num.toString(8);
+
+//     // octalStr='377';
+//     // num = parseInt(octalStr,8);  // num now holds 255
+// }
