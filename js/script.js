@@ -1,11 +1,11 @@
 $(function() {
-    console.debug( "ready!" );
+    // console.debug( "ready!" );
     hideAll();
 
     //$("#section0").show();
 
     var currentTab = localStorage.getItem('CurrentTab');
-    console.debug('CurrentTab', currentTab);
+    // console.debug('CurrentTab', currentTab);
     var id = "#section" + currentTab;
     $(id).show();
 
